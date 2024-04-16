@@ -1,7 +1,7 @@
 <template>
     <div>
         <input type="text" placeholder="cerca il film..">
-        <button>invia</button>
+        <button @click="reponseFromTheButton()">invia</button>
     </div>
 </template>
 
@@ -11,20 +11,24 @@ import {store} from '../store.js'
     export default {
         data(){
             return{
-                query: store.query,
-                key_result: store.API_KEY
+                api: store.API_KEY,
+                query: store.query
             }
         },
-        mounted(){
-            axios.get('https://api.themoviedb.org/3/search/movie?',{
+        methods:{
+        reponseFromTheButton(){
+            axios
+            .get('https://api.themoviedb.org/3/search/movie',{
                 params:{
-                    api_key: this.key_result,
+                    api_key: this.api,
                     query: this.query
                 }
-                
-
             })
 
+        }
+        },
+        mounted(){
+            console.log(this.reponseFromTheButton())
             
         }
     }
