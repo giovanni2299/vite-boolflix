@@ -1,9 +1,11 @@
 <template>
     <div>
-        <input type="text" placeholder="cerca il film..">
+        <input v-model="query" type="text" placeholder="cerca il film..">
         <button @click="reponseFromTheButton()">invia</button>
         <ul>
-            <li>{{}}</li>
+            <li>{{title}}</li>
+            <li>{{lenguage}}</li>
+            <li>{{vote}}</li>
         </ul>
     </div>
 </template>
@@ -16,6 +18,11 @@ import {store} from '../store.js'
             return{
                 query: store.query,
                 api: store.API_KEY,
+                title:[],
+                originalTitle:[],
+                lenguage:[],
+                vote:[],
+
             }
         },
         methods:{
@@ -27,7 +34,19 @@ import {store} from '../store.js'
                     query: this.query
                 }
             }).then((res) => {
-                console.log(res.data.results)
+                for(let i = 0; i < res.data.results.length; i++){
+                    this.title.push(res.data.results[i].title)
+                    this.originalTitle.push(res.data.results[i].original_title)
+                    this.lenguage.push(res.data.results[i].original_language)
+                    this.vote.push(res.data.results[i].vote_average)
+                    
+                    console.log(this.title, this.originalTitle, this.lenguage, this.vote)
+
+
+                }
+                // console.log('array di film: ', res.data.results)
+                // console.log('object della ricerca: ',res)
+
             })
 
         }
