@@ -2,6 +2,9 @@
     <div>
         <input type="text" placeholder="cerca il film..">
         <button @click="reponseFromTheButton()">invia</button>
+        <ul>
+            <li>{{}}</li>
+        </ul>
     </div>
 </template>
 
@@ -11,8 +14,8 @@ import {store} from '../store.js'
     export default {
         data(){
             return{
+                query: store.query,
                 api: store.API_KEY,
-                query: store.query
             }
         },
         methods:{
@@ -23,12 +26,14 @@ import {store} from '../store.js'
                     api_key: this.api,
                     query: this.query
                 }
+            }).then((res) => {
+                console.log(res.data.results)
             })
 
         }
         },
         mounted(){
-            console.log(this.reponseFromTheButton())
+            // console.log(this.reponseFromTheButton())
             
         }
     }
