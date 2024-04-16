@@ -2,6 +2,7 @@
 import HeaderApp from './components/HeaderApp.vue';
 import MainApp from './components/MainApp.vue';
 
+
 export default{
   components:{
     HeaderApp,

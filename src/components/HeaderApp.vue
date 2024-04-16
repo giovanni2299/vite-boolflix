@@ -2,12 +2,7 @@
     <div>
         <input v-model="query" type="text" placeholder="cerca il film..">
         <button @click="reponseFromTheButton()">invia</button>
-        <ul>
-            <li>{{this.title}}</li>
-            <li>{{this.originalTitle}}</li>
-            <li>{{this.lenguage}}</li>
-            <li>{{this.vote}}</li>
-        </ul>
+       
     </div>
 </template>
 
@@ -23,7 +18,7 @@ import {store} from '../store.js'
                 // originalTitle:[],
                 // lenguage:[],
                 // vote:[],
-                movie:[]
+                movies:[]
 
             }
         },
@@ -36,22 +31,24 @@ import {store} from '../store.js'
                     query: this.query
                 }
             }).then((res) => {
-                for(let i = 0; i < res.data.results.length; i++){
+                const data = res.data;
+                const results = data.results;
+                for(let i = 0; i < results.length; i++){
 
-                    const title = res.data.results[i].title
+                    const title = results[i].title
+                    const originalTitle = results[i].original_title
+                    const language = results[i].original_language
+                    const vote = results[i].vote_average
 
-                    const originalTitle = res.data.results[i].original_title
-
-                    const lenguage = res.data.results[i].original_title
-
-                    const vote = res.data.results[i].vote_average
-
-                    this.movie.push({
+                    this.movies.push({
                         title,
                         originalTitle,
-                        lenguage,
+                        language,
                         vote
                     })
+
+                    //RISULTATO APPAIONO GLI ARRAY CON I VALORI IN FORMATO STRINGA
+
                     // this.title.push(res.data.results[i].title),
 
                     // this.originalTitle.push(res.data.results[i].original_title),
