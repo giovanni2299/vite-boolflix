@@ -12,13 +12,14 @@ import {store} from '../store.js'
     export default {
         data(){
             return{
+                store: store,
                 query: store.query,
                 api: store.API_KEY,
                 // title:[],
                 // originalTitle:[],
                 // lenguage:[],
                 // vote:[],
-                movies:[]
+                
 
             }
         },
@@ -40,7 +41,7 @@ import {store} from '../store.js'
                     const language = results[i].original_language
                     const vote = results[i].vote_average
 
-                    this.movies.push({
+                    this.store.movies.push({
                         title,
                         originalTitle,
                         language,

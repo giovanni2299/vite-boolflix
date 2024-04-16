@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul>
-            <li  v-for="movie in movies">
+            <li >
                 <h1>{{movie.title}}</h1>
                 <h2>{{movie.original_title}}</h2>
                 <h3>{{movie.language}}</h3>
@@ -16,8 +16,8 @@
 import {store} from '../store.js'
     export default {
         props:{
-            movies:{
-                type:Array
+            movie:{
+                type:Object,
             }
         }
     }

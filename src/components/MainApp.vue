@@ -1,6 +1,6 @@
 <template>
     <div>
-        <CardApp :movies="movies"/>
+        <CardApp v-for="(movie, i) in store.movies" :key="i" :movie="movie"/>
     </div>
 </template>
 
@@ -8,14 +8,15 @@
 import CardApp from './CardApp.vue'
 import {store} from '../store.js'
     export default {
+        data(){
+            return{
+                store: store,
+            }
+        },
         components:{
             CardApp,
         },
-        props:{
-            movies:{
-                type:Array
-            }
-        }
+        
     }
 </script>
 
