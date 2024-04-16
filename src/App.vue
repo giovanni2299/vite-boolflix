@@ -1,7 +1,7 @@
 <script>
-//MI INPORTO I FILE DI INTERESSE 
-import HeaderApp from './components/HeaderApp.vue' //HEADER
-import MainApp from './components/MainApp.vue'; //MAIN
+import HeaderApp from './components/HeaderApp.vue';
+import MainApp from './components/MainApp.vue';
+
 export default{
   components:{
     HeaderApp,
