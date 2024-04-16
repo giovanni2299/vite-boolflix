@@ -4,11 +4,19 @@
             <li >
                 <h1>{{movie.title}}</h1>
                 <h2>{{movie.original_title}}</h2>
-                <h3 :class="movie.language" >.</h3>
-                <h5>{{movie.vote}}</h5>
+                <h3 :class="movie.language" ><img :src="movie.language" alt=""> {{movie.language}}</h3>
+                <h4>{{movie.vote}}</h4>
             </li>
             
         </ul>
+        <!-- <ul>
+            <li v-for="(serie, i) in store.tvSeries" :key="i" :serie="serie">
+                <h1>{{serie.title}}</h1>
+                <h2>{{serie.original_title}}</h2>
+                <h3 :class="serie.language">{{serie.language}}</h3>
+                <h4>{{serie.vote}}</h4>
+            </li>
+        </ul> -->
     </div>
 </template>
 
@@ -18,7 +26,10 @@ import {store} from '../store.js'
         props:{
             movie:{
                 type:Object,
-            }
+            },
+            // serie:{
+            //     type:Object
+            // }
         }
     }
 </script>

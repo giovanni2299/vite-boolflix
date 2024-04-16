@@ -67,7 +67,29 @@ import {store} from '../store.js'
                 // console.log('object della ricerca: ',res)
 
             })
+            // axios
+            // .get('https://api.themoviedb.org/3/search/tv',{
+            //     params:{
+            //         api_key: this.api,
+            //         query: this.query
+            //     }
+            // }).then((response)=> {
+            //     const data2 = response.data;
+            //     const results2 = data2.results;
+            //     for(let j = 0; j < results2.length; i++){
+            //         const tvTitle = results2[j].title
+            //         const tvOriginalTitle = results2[j].original_title
+            //         const tvLanguage = results2[j].original_language
+            //         const tvVote = results2[j].vote_average
 
+            //         this.store.tvSeries.push({
+            //             tvTitle,
+            //             tvOriginalTitle,
+            //             tvLanguage,
+            //             tvVote
+            //         })
+            //     }
+            // })
         }
         },
         mounted(){

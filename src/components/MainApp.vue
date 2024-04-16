@@ -1,6 +1,6 @@
 <template>
     <div>
-        <CardApp v-for="(movie, i) in store.movies" :key="i" :movie="movie"/>
+        <CardApp v-for="(movie, i) in store.movies" :key="i" :movie="movie" />
     </div>
 </template>
 
