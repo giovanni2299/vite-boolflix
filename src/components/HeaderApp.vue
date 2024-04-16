@@ -3,9 +3,10 @@
         <input v-model="query" type="text" placeholder="cerca il film..">
         <button @click="reponseFromTheButton()">invia</button>
         <ul>
-            <li>{{title}}</li>
-            <li>{{lenguage}}</li>
-            <li>{{vote}}</li>
+            <li>{{this.title}}</li>
+            <li>{{this.originalTitle}}</li>
+            <li>{{this.lenguage}}</li>
+            <li>{{this.vote}}</li>
         </ul>
     </div>
 </template>
@@ -18,10 +19,11 @@ import {store} from '../store.js'
             return{
                 query: store.query,
                 api: store.API_KEY,
-                title:[],
-                originalTitle:[],
-                lenguage:[],
-                vote:[],
+                // title:[],
+                // originalTitle:[],
+                // lenguage:[],
+                // vote:[],
+                movie:[]
 
             }
         },
@@ -35,13 +37,32 @@ import {store} from '../store.js'
                 }
             }).then((res) => {
                 for(let i = 0; i < res.data.results.length; i++){
-                    this.title.push(res.data.results[i].title)
-                    this.originalTitle.push(res.data.results[i].original_title)
-                    this.lenguage.push(res.data.results[i].original_language)
-                    this.vote.push(res.data.results[i].vote_average)
-                    
-                    console.log(this.title, this.originalTitle, this.lenguage, this.vote)
 
+                    const title = res.data.results[i].title
+
+                    const originalTitle = res.data.results[i].original_title
+
+                    const lenguage = res.data.results[i].original_title
+
+                    const vote = res.data.results[i].vote_average
+
+                    this.movie.push({
+                        title,
+                        originalTitle,
+                        lenguage,
+                        vote
+                    })
+                    // this.title.push(res.data.results[i].title),
+
+                    // this.originalTitle.push(res.data.results[i].original_title),
+
+                    // this.lenguage.push(res.data.results[i].original_language),
+
+                    // this.vote.push(res.data.results[i].vote_average),
+                    
+                    // console.log(this.title, this.originalTitle, this.lenguage, this.vote)
+
+                    
 
                 }
                 // console.log('array di film: ', res.data.results)
