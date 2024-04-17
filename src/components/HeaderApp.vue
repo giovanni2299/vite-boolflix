@@ -106,6 +106,7 @@ import {store} from '../store.js'
             this.responseSeries()
         }
 
+
         },
         mounted(){
             // console.log(this.reponseFromTheButton())

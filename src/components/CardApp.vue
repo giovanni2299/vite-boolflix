@@ -4,7 +4,7 @@
             <!-- v-for="(movie, i) in store.movies" :key="i" :movie="movie" -->
             <li v-for="(movie, i) in store.movies" :key="movie.id">
                 <h1>{{movie.title}}</h1>
-                <h2>{{movie.original_title}}</h2>
+                <h2>{{movie.originalTitle}}</h2>
                 <div>
                     <img :src="`https://image.tmdb.org/t/p/w342/${movie.image}`" alt="">
                 </div>
@@ -43,6 +43,15 @@ import {store} from '../store.js'
                 store: store
             }
         },
+        methods:{
+            voteWithStars(){
+                this.store.movies.vote / 2
+                
+            }
+        },
+        mounted(){
+            console.log(this.voteWithStars())
+        }
         // props:{
         //     movie:{
         //         type:Object,
