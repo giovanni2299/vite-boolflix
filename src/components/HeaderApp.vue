@@ -1,7 +1,7 @@
 <template>
     <header class="header_page">
         <div class="logo">Boolflix</div>
-        <div>
+        <div class="">
             <input v-model="query" type="text" placeholder="cerca il film..">
             <button @click="bothResponse()">invia</button>
         </div>
@@ -46,7 +46,7 @@ import {store} from '../store.js'
                     const vote = results[i].vote_average
                     const image = results[i].poster_path
                     
-                    // store.movies = res.data.results
+                    //store.movies = res.data.results
 
                     this.store.movies.push({
                         title,

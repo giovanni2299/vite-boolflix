@@ -1,7 +1,14 @@
 <template>
-    <div>
-        <CardApp  />
-    </div>
+    <main class="main_page">
+        <div class="container">
+            <div class="row">
+                <ul class="ul_row">
+                    <CardApp/>
+
+                </ul>
+            </div>
+        </div>
+    </main>
 </template>
 
 <script>

@@ -1,0 +1,27 @@
+.main_page{
+    background-color: black;
+    color: white;
+}
+.container{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap ;
+}
+
+.ul_row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap ;
+    align-items: center;
+    gap: 10px;
+}
+
+.col{
+    width: calc(3 * 100% / 12 - 10px);
+    cursor: pointer;
+    
+}
