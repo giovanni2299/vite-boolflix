@@ -16,7 +16,7 @@ export default{
  <MainApp/>
 </template>
 
-<style lang="scss" scoped>
-@use './style/general.scss';
+<style>
+
 
 </style>

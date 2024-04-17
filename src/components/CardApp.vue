@@ -11,11 +11,11 @@
             
         </ul>
         <ul>
-            <li v-for="(serie, i) in store.tvSeries" :key="serie.id">
-                <h1>{{serie.name}}</h1>
-                <h2>{{serie.original_name}}</h2>
-                <img class="flag" :src="`/img/${serie.language}.png`" :alt="`${serie.language}`">
-                <h4>{{serie.vote}}</h4>
+            <li v-for="(serie, i) in store.tvSeries" :key="i">
+                <h1>{{serie.tvTitle}}</h1>
+                <h2>{{serie.tvOriginalTitle}}</h2>
+                <img class="flag" :src="`/img/${serie.tvLanguage}.png`" :alt="`${serie.tvLanguage}`">
+                <h4>{{serie. tvVote}}</h4>
             </li>
         </ul>
     </div>
@@ -41,6 +41,7 @@ import {store} from '../store.js'
 </script>
 
 <style lang="scss" scoped>
+
 .flag{
     width: 30px;
     border-radius: 5px;
