@@ -40,6 +40,8 @@ import {store} from '../store.js'
                     const originalTitle = results[i].original_title
                     const language = results[i].original_language
                     const vote = results[i].vote_average
+                    
+                    // store.movies = res.data.results
 
                     this.store.movies.push({
                         title,
@@ -47,6 +49,7 @@ import {store} from '../store.js'
                         language,
                         vote
                     })
+                    
 
                     //RISULTATO APPAIONO GLI ARRAY CON I VALORI IN FORMATO STRINGA
 
