@@ -9,10 +9,11 @@
                     <img :src="`https://image.tmdb.org/t/p/w342/${movie.image}`" alt="">
                 </div>
                 <img class="flag" :src="`/img/${movie.language}.png`" :alt="`${movie.language}`">
-                <h4>{{movie.vote}}</h4>
+                <!-- <h4>{{movie.vote}}</h4> -->
+                <h4 >{{ newVote(movie.vote)}}</h4>
                 <p>
-                    <font-awesome-icon :icon="['fas', 'star']" />
-                    <font-awesome-icon :icon="['far', 'star']" />
+                    <font-awesome-icon :icon="['fas', 'star']"  v-for="star in newVote(movie.vote) "/>
+                    <font-awesome-icon :icon="['far', 'star']" v-for="star in regularStars(movie.vote) "/>
                 </p>
             </li>
             
@@ -25,10 +26,11 @@
                     <img :src="`https://image.tmdb.org/t/p/w342/${serie.tvImage}`" alt="">
                 </div>
                 <img class="flag" :src="`/img/${serie.tvLanguage}.png`" :alt="`${serie.tvLanguage}`">
-                <h4>{{serie. tvVote}}</h4>
+                <!-- <h4>{{serie. tvVote}}</h4> -->
+                <h4>{{newVoteTv(serie.tvVote)}}</h4>
                 <p>
-                    <font-awesome-icon :icon="['fas', 'star']" />
-                    <font-awesome-icon :icon="['far', 'star']" />
+                    <font-awesome-icon :icon="['fas', 'star']" v-for="star in newVote(serie.tvVote) "/>
+                    <font-awesome-icon :icon="['far', 'star']" v-for="star in regularStars(serie.tvVote) "/>
                 </p>
             </li>
         </ul>
@@ -44,14 +46,23 @@ import {store} from '../store.js'
             }
         },
         methods:{
-            voteWithStars(){
-                this.store.movies.vote / 2
+            newVote(voto){
+                const newVoto = Math.floor(voto / 2)
+                return newVoto
                 
+            },
+            newVoteTv(votoTv){
+                const newVotoTv = Math.floor(votoTv / 2)
+                return newVotoTv
+
+            },
+            regularStars(voto){
+                const result = 5 - (Math.floor(voto / 2))
+                return result
+
             }
         },
-        mounted(){
-            console.log(this.store.movies.vote)
-        }
+        
         // props:{
         //     movie:{
         //         type:Object,
