@@ -1,9 +1,12 @@
 <template>
-    <div>
-        <input v-model="query" type="text" placeholder="cerca il film..">
-        <button @click="bothResponse()">invia</button>
+    <header class="header_page">
+        <div class="logo">Boolflix</div>
+        <div>
+            <input v-model="query" type="text" placeholder="cerca il film..">
+            <button @click="bothResponse()">invia</button>
+        </div>
        
-    </div>
+    </header>
 </template>
 
 <script>
@@ -32,6 +35,7 @@ import {store} from '../store.js'
                     query: this.query
                 }
             }).then((res) => {
+                this.store.movies = [];
                 const data = res.data;
                 const results = data.results;
                 for(let i = 0; i < results.length; i++){
@@ -81,6 +85,7 @@ import {store} from '../store.js'
                     query: this.query
                 }
             }).then((response)=> {
+                this.store.tvSeries = [];
                 const data2 = response.data;
                 const results2 = data2.results;
                 for(let j = 0; j < results2.length; j++){
@@ -116,6 +121,6 @@ import {store} from '../store.js'
 </script>
 
 <style lang="scss" scoped>
-@use './style/general'
+@use '../style/general'
 
 </style>

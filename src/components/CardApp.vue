@@ -10,7 +10,7 @@
                 </div>
                 <img class="flag" :src="`/img/${movie.language}.png`" :alt="`${movie.language}`">
                 <!-- <h4>{{movie.vote}}</h4> -->
-                <h4 >{{ newVote(movie.vote)}}</h4>
+                <!-- <h4 >{{ newVote(movie.vote)}}</h4> -->
                 <p>
                     <font-awesome-icon :icon="['fas', 'star']"  v-for="star in newVote(movie.vote) "/>
                     <font-awesome-icon :icon="['far', 'star']" v-for="star in regularStars(movie.vote) "/>
@@ -27,7 +27,7 @@
                 </div>
                 <img class="flag" :src="`/img/${serie.tvLanguage}.png`" :alt="`${serie.tvLanguage}`">
                 <!-- <h4>{{serie. tvVote}}</h4> -->
-                <h4>{{newVoteTv(serie.tvVote)}}</h4>
+                <!-- <h4>{{newVoteTv(serie.tvVote)}}</h4> -->
                 <p>
                     <font-awesome-icon :icon="['fas', 'star']" v-for="star in newVote(serie.tvVote) "/>
                     <font-awesome-icon :icon="['far', 'star']" v-for="star in regularStars(serie.tvVote) "/>

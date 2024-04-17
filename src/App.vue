@@ -16,7 +16,7 @@ export default{
  <MainApp/>
 </template>
 
-<style>
-
+<style lang="scss">
+@use './style/general.scss'
 
 </style>

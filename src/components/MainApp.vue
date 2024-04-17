@@ -21,6 +21,6 @@ import {store} from '../store.js'
 </script>
 
 <style lang="scss" scoped>
-@use './style/general'
+@use '../style/general'
 
 </style>
