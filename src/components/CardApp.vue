@@ -50,7 +50,7 @@ import {store} from '../store.js'
             }
         },
         mounted(){
-            console.log(this.voteWithStars())
+            console.log(this.store.movies.vote)
         }
         // props:{
         //     movie:{
