@@ -40,6 +40,7 @@ import {store} from '../store.js'
                     const originalTitle = results[i].original_title
                     const language = results[i].original_language
                     const vote = results[i].vote_average
+                    const image = results[i].poster_path
                     
                     // store.movies = res.data.results
 
@@ -47,7 +48,8 @@ import {store} from '../store.js'
                         title,
                         originalTitle,
                         language,
-                        vote
+                        vote,
+                        image
                     })
                     
 
@@ -86,12 +88,14 @@ import {store} from '../store.js'
                     const tvOriginalTitle = results2[j].original_name
                     const tvLanguage = results2[j].original_language
                     const tvVote = results2[j].vote_average
+                    const tvImage = results2[j].poster_path
 
                     this.store.tvSeries.push({
                         tvTitle,
                         tvOriginalTitle,
                         tvLanguage,
-                        tvVote
+                        tvVote,
+                        tvImage
                     })
                 }
                 console.log(this.store.tvSeries)
