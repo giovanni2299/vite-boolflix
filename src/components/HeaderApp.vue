@@ -1,7 +1,7 @@
 <template>
     <div>
         <input v-model="query" type="text" placeholder="cerca il film..">
-        <button @click="reponseFromTheButton()">invia</button>
+        <button @click="bothResponse()">invia</button>
        
     </div>
 </template>
@@ -24,7 +24,7 @@ import {store} from '../store.js'
             }
         },
         methods:{
-        reponseFromTheButton(){
+        reponseMovies(){
             axios
             .get('https://api.themoviedb.org/3/search/movie',{
                 params:{
@@ -68,32 +68,40 @@ import {store} from '../store.js'
                 }
                 // console.log('array di film: ', res.data.results)
                 // console.log('object della ricerca: ',res)
+                console.log(this.store.movies)
 
             })
-            // axios
-            // .get('https://api.themoviedb.org/3/search/tv',{
-            //     params:{
-            //         api_key: this.api,
-            //         query: this.query
-            //     }
-            // }).then((response)=> {
-            //     const data2 = response.data;
-            //     const results2 = data2.results;
-            //     for(let j = 0; j < results2.length; i++){
-            //         const tvTitle = results2[j].title
-            //         const tvOriginalTitle = results2[j].original_title
-            //         const tvLanguage = results2[j].original_language
-            //         const tvVote = results2[j].vote_average
+        },responseSeries(){
+            axios
+            .get('https://api.themoviedb.org/3/search/tv',{
+                params:{
+                    api_key: this.api,
+                    query: this.query
+                }
+            }).then((response)=> {
+                const data2 = response.data;
+                const results2 = data2.results;
+                for(let j = 0; j < results2.length; j++){
+                    const tvTitle = results2[j].name
+                    const tvOriginalTitle = results2[j].original_name
+                    const tvLanguage = results2[j].original_language
+                    const tvVote = results2[j].vote_average
 
-            //         this.store.tvSeries.push({
-            //             tvTitle,
-            //             tvOriginalTitle,
-            //             tvLanguage,
-            //             tvVote
-            //         })
-            //     }
-            // })
+                    this.store.tvSeries.push({
+                        tvTitle,
+                        tvOriginalTitle,
+                        tvLanguage,
+                        tvVote
+                    })
+                }
+                console.log(this.store.tvSeries)
+            })
+        },
+        bothResponse(){
+            this.reponseMovies()
+            this.responseSeries()
         }
+
         },
         mounted(){
             // console.log(this.reponseFromTheButton())

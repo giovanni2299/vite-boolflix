@@ -2,19 +2,19 @@
     <div>
         <ul>
             <!-- v-for="(movie, i) in store.movies" :key="i" :movie="movie" -->
-            <li v-for="(movie, i) in store.movies" :key="i">
+            <li v-for="(movie, i) in store.movies" :key="movie.id">
                 <h1>{{movie.title}}</h1>
                 <h2>{{movie.original_title}}</h2>
-                <h3 :class="movie.language" ><img :src="movie.language" alt=""> {{movie.language}}</h3>
+                <img class="flag" :src="`/img/${movie.language}.png`" :alt="`${movie.language}`">
                 <h4>{{movie.vote}}</h4>
             </li>
             
         </ul>
         <ul>
-            <li v-for="(serie, i) in store.tvSeries" :key="i">
-                <h1>{{serie.title}}</h1>
-                <h2>{{serie.original_title}}</h2>
-                <h3 :class="serie.language">{{serie.language}}</h3>
+            <li v-for="(serie, i) in store.tvSeries" :key="serie.id">
+                <h1>{{serie.name}}</h1>
+                <h2>{{serie.original_name}}</h2>
+                <img class="flag" :src="`/img/${serie.language}.png`" :alt="`${serie.language}`">
                 <h4>{{serie.vote}}</h4>
             </li>
         </ul>
@@ -41,25 +41,8 @@ import {store} from '../store.js'
 </script>
 
 <style lang="scss" scoped>
-.en{
-    // background: blue;
-    background-image: url(../../public/img/england.png);
-    background-size: cover;
+.flag{
+    width: 30px;
     border-radius: 5px;
-    width: 50px;
-}
-.it{
-    // background: green;
-    background-image: url(../../public/img/italy.png);
-    border-radius: 5px;
-    background-size: cover;
-    width: 50px;
-}
-.es{
-    // background: red;
-    background-image: url(../../public/img/spanish.png);
-    background-size: cover;
-    border-radius: 5px;
-    width: 50px;
 }
 </style>
