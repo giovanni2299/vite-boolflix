@@ -2,9 +2,9 @@
     <header class="header_page">
         <div class="logo">Boolflix</div>
         <ul class="ul_header">
-                <li>Categorie
-                    <font-awesome-icon class="cursor" :icon="['fas', 'chevron-down']" />
-                    <div class="modal">
+                <li class="categories">Categorie
+                   <span @click="changeBooleanValue()"> <font-awesome-icon class="cursor" :icon="['fas', 'chevron-down']" /> </span> 
+                    <div :class="modal" class="modal">
                         <p>Horror</p>
                         <p>Azione</p>
                         <p>Anime</p>
@@ -31,6 +31,7 @@ import {store} from '../store.js'
     export default {
         data(){
             return{
+                modal: false,
                 store: store,
                 query: store.query,
                 api: store.API_KEY,
@@ -125,12 +126,20 @@ import {store} from '../store.js'
         bothResponse(){
             this.reponseMovies()
             this.responseSeries()
-        }
+        },
+        changeBooleanValue(){
+            this.modal = true
+            console.log('ho cliccato')
+        },
+
 
 
         },
         mounted(){
             // console.log(this.reponseFromTheButton())
+            // console.log(this.contacts[1].messages[1].status)
+        
+            
             
         }
     }

@@ -31,7 +31,13 @@
 .cursor{
     cursor: pointer;
 }
+
+.categories{
+    position: relative;
+}
+
 .modal{
+    display: none;
     background-color: white;
     color: black;
     border-radius: 5px;
@@ -39,4 +45,8 @@
 }
 .modal > p{
     border-bottom:1px solid gray;
+}
+
+.modal > p:last-child{
+    border: none;
 }
