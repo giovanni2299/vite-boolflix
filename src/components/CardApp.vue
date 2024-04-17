@@ -13,7 +13,7 @@
                 <h1>{{movie.title}}</h1>
                 <p>{{movie.originalTitle}}</p>
 
-                <img class="flag" :src="`/img/${movie.language}.png`" :alt="`${movie.language}`">
+                <img class="flag" :src="`/img/${movie.language}.svg`" :alt="`${movie.language}`">
                 <!-- <h4>{{movie.vote}}</h4> -->
                 <!-- <h4 >{{ newVote(movie.vote)}}</h4> -->
 
@@ -37,7 +37,7 @@
                 <h1>{{serie.tvTitle}}</h1>
                 <p>{{serie.tvOriginalTitle}}</p>
 
-                <img class="flag" :src="`/img/${serie.tvLanguage}.png`" :alt="`${serie.tvLanguage}`">
+                <img class="flag" :src="`/img/${serie.tvLanguage}.svg`" :alt="`${serie.tvLanguage}`">
 
                 <!-- <h4>{{serie. tvVote}}</h4> -->
                 <!-- <h4>{{newVoteTv(serie.tvVote)}}</h4> -->
@@ -86,7 +86,7 @@ import {store} from '../store.js'
 
 <style lang="scss" scoped>
 .flag{
-    width: 30px;
+    width: 20px;
     border-radius: 5px;
 }
 .d-none{

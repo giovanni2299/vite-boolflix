@@ -1,9 +1,25 @@
 <template>
     <header class="header_page">
         <div class="logo">Boolflix</div>
+        <ul class="ul_header">
+                <li>Categorie
+                    <font-awesome-icon class="cursor" :icon="['fas', 'chevron-down']" />
+                    <div class="modal">
+                        <p>Horror</p>
+                        <p>Azione</p>
+                        <p>Anime</p>
+                        <p>Documentari</p>
+                        <p>Altro..</p>
+                    </div>
+                </li>
+                <li>Movies</li>
+                <li>Series</li>
+                <li>Preference</li>
+                <li>Download</li>
+            </ul>
         <div class="">
-            <input v-model="query" type="text" placeholder="cerca il film..">
-            <button @click="bothResponse()">invia</button>
+            <input @keyup.enter="bothResponse()" class="search" v-model="query" type="text" placeholder="cerca il film..">
+            <button class="valid" @click="bothResponse()">invia</button>
         </div>
        
     </header>

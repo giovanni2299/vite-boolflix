@@ -11,10 +11,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome' //RECUPERIAMO IL 
 
 
 //import icons
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import {faStar as faStarEmp} from '@fortawesome/free-regular-svg-icons'
 
-library.add(faStar, faStarEmp)
+library.add(faStar, faStarEmp, faChevronDown)
 
 const app = createApp(App)
 

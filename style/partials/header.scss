@@ -8,5 +8,35 @@
 }
 .logo{
     color: red;
-    font-size: 30px;
+    font-size: 45px;
+}
+
+.ul_header{
+    display: flex;
+    gap: 10px;
+    
+}
+
+.search{
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.valid{
+    border: none;
+    padding: 5px 10px;
+}
+
+.cursor{
+    cursor: pointer;
+}
+.modal{
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+.modal > p{
+    border-bottom:1px solid gray;
 }
