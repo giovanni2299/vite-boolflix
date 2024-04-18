@@ -3,8 +3,8 @@
         <!-- v-for="(movie, i) in store.movies" :key="i" :movie="movie" -->
         <li class="col" v-for="(movie, i) in store.movies" :key="movie.id">
             
-            <div>
-                <img class="show_info" :src="`https://image.tmdb.org/t/p/w342/${movie.image}`" alt="">
+            <div class="show_info">
+                <img  :src="`https://image.tmdb.org/t/p/w342/${movie.image}` !== 'https://image.tmdb.org/t/p/w342/null' ? `https://image.tmdb.org/t/p/w342/${movie.image}` : '/img/not-found.jpeg' " alt="">
             </div>
             
            
@@ -28,8 +28,8 @@
 
         <li class="col" v-for="(serie, i) in store.tvSeries" :key="i">
             
-            <div>
-                <img class="show_info" :src="`https://image.tmdb.org/t/p/w342/${serie.tvImage}`" alt="">
+            <div class="show_info">  <!-- QUI STAI FACENDO UN TERARIO CHE DICE SE L' IMMAGINE E DIVERSA DA NULL GLI MOSTRA L' IMMAGINE DEL CHE MI SERVE ALTRIMENTI MI METTE L' ALTRA PERCHE IL PERCORSO DEL IMMAGINE E NULL -->
+                <img :src="`https://image.tmdb.org/t/p/w342/${serie.tvImage}` !== 'https://image.tmdb.org/t/p/w342/null' ? `https://image.tmdb.org/t/p/w342/${serie.tvImage}` : '/img/not-found.jpeg' " alt="">
             </div>
             
            

@@ -122,7 +122,7 @@ import {store} from '../store.js'
                 console.log(this.store.movies)
 
             })
-        },responseSeries(){
+        },responseSeries(){ //CHIAMATA AL SERVER TRAMITE AXIOS
             axios
             .get('https://api.themoviedb.org/3/search/tv',{
                 params:{
@@ -130,16 +130,16 @@ import {store} from '../store.js'
                     query: this.query
                 }
             }).then((response)=> {
-                this.store.tvSeries = [];
-                const data2 = response.data;
-                const results2 = data2.results;
-                for(let j = 0; j < results2.length; j++){
-                    const tvTitle = results2[j].name
-                    const tvOriginalTitle = results2[j].original_name
-                    const tvLanguage = results2[j].original_language
-                    const tvVote = results2[j].vote_average
-                    const tvImage = results2[j].poster_path
-                    const tvDescription = results2[j].overview
+                this.store.tvSeries = [];                                       //ALL INTERNO DEL .THEN TI SEI PRESO I VALORI DEL OGGETO CHE TI RESTITUISCE LA CHIAMATA 
+                const data2 = response.data;                                   //I DATI DEL OGGETTO + LA RISPOSTA DEL THEN
+                const results2 = data2.results;                               // I RISULTATI DEL DATA 
+                for(let j = 0; j < results2.length; j++){                    //QUI AI PERCORSO LA LUNGHEZZA DEI TUOI RISULTATI E TI SEI PRESO ALTRI VALORI SINGOLI 
+                    const tvTitle = results2[j].name                        //IL NOME 
+                    const tvOriginalTitle = results2[j].original_name      //IL 'COGNOME'
+                    const tvLanguage = results2[j].original_language      //LA LINGUA
+                    const tvVote = results2[j].vote_average              //LA GRADAZIONE
+                    const tvImage = results2[j].poster_path             //LA SUA FOTO
+                    const tvDescription = results2[j].overview         //LA SUA RECENSIONE
 
                     this.store.tvSeries.push({
                         tvTitle,
@@ -156,11 +156,22 @@ import {store} from '../store.js'
         bothResponse(){
             this.reponseMovies()
             this.responseSeries()
+            this.query = this.randomMovie()
+            
         },
         changeBooleanValue(){
             this.modal = !this.modal
             console.log('ho cliccato')
         },
+        randomMovie(){ 
+            //PER POPOLARE IL MAIN ANCHE DAL PRIMO CARICAMENTO SENZA SCRIVERE NULLA UTILIZZANDO UN ARRAY E RECUPERANDOTI IL SUO INDICE 
+            //CREO L' ARRAY
+            const emptyArray = ['a','b','c','d','e','f','g','h','i','l','m','n','o','p','q','r','s','t','u','v','z',]
+            //GENEREO UN IDICE RANDOM MOLTIPLICANDOLO PER LA SUA LUNGHEZZA
+            const randomI = Math.floor(Math.random() * emptyArray.length);
+            //RITORNA L'INDICE RANDOM TROVATO DENTRO L'ARRAY 
+            return emptyArray[randomI]
+        }
 
 
 
@@ -168,6 +179,9 @@ import {store} from '../store.js'
         mounted(){
             // console.log(this.reponseFromTheButton())
             // console.log(this.contacts[1].messages[1].status)
+            this.query = this.randomMovie()
+            this.bothResponse()
+            this.query = ''
         
             
             
