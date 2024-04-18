@@ -156,7 +156,8 @@ import {store} from '../store.js'
         bothResponse(){
             this.reponseMovies()
             this.responseSeries()
-            this.query = this.randomMovie()
+            this.randomMovie()
+            
             
         },
         changeBooleanValue(){

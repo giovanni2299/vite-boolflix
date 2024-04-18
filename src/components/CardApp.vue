@@ -45,7 +45,7 @@
                 <!-- <h4>{{newVoteTv(serie.tvVote)}}</h4> -->
 
                 <p>
-                    <font-awesome-icon :icon="['fas', 'star']" v-for="star in newVote(serie.tvVote) "/>
+                    <font-awesome-icon class="star" :icon="['fas', 'star']" v-for="star in newVote(serie.tvVote) "/>
                     <font-awesome-icon :icon="['far', 'star']" v-for="star in regularStars(serie.tvVote) "/>
                 </p>
             </div>
