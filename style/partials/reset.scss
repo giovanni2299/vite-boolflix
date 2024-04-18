@@ -9,3 +9,14 @@ ul, ol, menu{
 img{
     max-width: 100%;
 }
+
+a{
+    text-decoration: none;
+    color: currentColor;
+}
+
+#app{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

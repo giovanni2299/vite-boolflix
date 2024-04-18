@@ -11,6 +11,11 @@
     font-size: 45px;
 }
 
+.logo_img{
+    background-color: black;
+    width: 150px;
+}
+
 .ul_header{
     display: flex;
     gap: 10px;
@@ -36,17 +41,30 @@
     position: relative;
 }
 
-.modal{
-    display: none;
+.d-block{
+    display: block;
+}
+
+.span_icon{
+    position: relative;
+}
+.absolute{
+    position: absolute;
     background-color: white;
     color: black;
     border-radius: 5px;
     padding: 0 5px;
+    z-index: 1;
 }
-.modal > p{
+
+.modal_class{
+    display: none;
+    
+}
+.modal_class > p{
     border-bottom:1px solid gray;
 }
 
-.modal > p:last-child{
+.modal_class > p:last-child{
     border: none;
 }

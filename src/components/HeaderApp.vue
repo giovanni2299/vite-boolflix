@@ -1,16 +1,42 @@
 <template>
     <header class="header_page">
-        <div class="logo">Boolflix</div>
+        <div class="logo">
+            <img class="logo_img" src="../../public/img/netflix-logo.png" alt="">
+        </div>
         <ul class="ul_header">
                 <li class="categories">Categorie
-                   <span @click="changeBooleanValue()"> <font-awesome-icon class="cursor" :icon="['fas', 'chevron-down']" /> </span> 
-                    <div :class="modal" class="modal">
-                        <p>Horror</p>
-                        <p>Azione</p>
-                        <p>Anime</p>
-                        <p>Documentari</p>
-                        <p>Altro..</p>
+                   <span class="span_icon" @click="changeBooleanValue()"> <font-awesome-icon class="cursor" :icon="['fas', 'chevron-down']" /> </span> 
+                   <div class="absolute">
+                    <div :class="modal === false ? 'modal_class d-block ' : '' ">
+                        <p>
+                            <a href="#">
+                                Horror
+                            </a>
+                        </p>
+                        <p>
+                            <a href="#">
+                                Azione
+                            </a>
+                        </p>
+                        <p>
+                            <a href="#">
+                                Anime
+                            </a>
+                        </p>
+                        <p>
+                            <a href="#">
+                                Documentari
+                            </a>
+                        </p>
+                        <p>
+                            <a href="#">
+                                Altro..
+                            </a>
+                        </p>
                     </div>
+
+                   </div>
+                    
                 </li>
                 <li>Movies</li>
                 <li>Series</li>
@@ -62,6 +88,7 @@ import {store} from '../store.js'
                     const language = results[i].original_language
                     const vote = results[i].vote_average
                     const image = results[i].poster_path
+                    const description = results[i].overview
                     
                     //store.movies = res.data.results
 
@@ -70,7 +97,8 @@ import {store} from '../store.js'
                         originalTitle,
                         language,
                         vote,
-                        image
+                        image,
+                        description
                     })
                     
 
@@ -111,13 +139,15 @@ import {store} from '../store.js'
                     const tvLanguage = results2[j].original_language
                     const tvVote = results2[j].vote_average
                     const tvImage = results2[j].poster_path
+                    const tvDescription = results2[j].overview
 
                     this.store.tvSeries.push({
                         tvTitle,
                         tvOriginalTitle,
                         tvLanguage,
                         tvVote,
-                        tvImage
+                        tvImage,
+                        tvDescription
                     })
                 }
                 console.log(this.store.tvSeries)
@@ -128,7 +158,7 @@ import {store} from '../store.js'
             this.responseSeries()
         },
         changeBooleanValue(){
-            this.modal = true
+            this.modal = !this.modal
             console.log('ho cliccato')
         },
 
@@ -146,6 +176,7 @@ import {store} from '../store.js'
 </script>
 
 <style lang="scss" scoped>
-@use '../style/general'
+@use '../style/general';
+
 
 </style>

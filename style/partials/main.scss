@@ -1,6 +1,9 @@
 .main_page{
     background-color: black;
     color: white;
+    flex-grow: 1;
+    overflow: auto;
+    // min-height: 90vh;
 }
 .container{
     max-width: 1024px;
@@ -23,5 +26,6 @@
 .col{
     width: calc(3 * 100% / 12 - 10px);
     cursor: pointer;
+    position: relative;
     
 }

@@ -14,6 +14,7 @@
                 <p>{{movie.originalTitle}}</p>
 
                 <img class="flag" :src="`/img/${movie.language}.svg`" :alt="`${movie.language}`">
+                <p class="description">{{movie.description}}</p>
                 <!-- <h4>{{movie.vote}}</h4> -->
                 <!-- <h4 >{{ newVote(movie.vote)}}</h4> -->
 
@@ -38,6 +39,7 @@
                 <p>{{serie.tvOriginalTitle}}</p>
 
                 <img class="flag" :src="`/img/${serie.tvLanguage}.svg`" :alt="`${serie.tvLanguage}`">
+                <p class="description">{{serie.tvDescription}}</p>
 
                 <!-- <h4>{{serie. tvVote}}</h4> -->
                 <!-- <h4>{{newVoteTv(serie.tvVote)}}</h4> -->
@@ -90,7 +92,12 @@ import {store} from '../store.js'
     border-radius: 5px;
 }
 .d-none{
+    padding: 20px;
     display: none;
+    overflow: auto;
+    width: 100%;
+    height: 370px;
+    background-color: #333333;
 }
 
 .col:hover .d-none{
@@ -104,4 +111,5 @@ import {store} from '../store.js'
 .star{
     color: yellow;
 }
+
 </style>
