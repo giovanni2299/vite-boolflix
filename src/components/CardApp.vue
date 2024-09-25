@@ -87,6 +87,8 @@ import {store} from '../store.js'
 </script>
 
 <style lang="scss" scoped>
+
+
 .flag{
     width: 20px;
     border-radius: 5px;

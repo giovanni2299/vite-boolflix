@@ -45,7 +45,7 @@
             </ul>
         <div class="">
             <input @keyup.enter="bothResponse()" class="search" v-model="query" type="text" placeholder="cerca il film..">
-            <button class="valid" @click="bothResponse()">invia</button>
+            <button class="valid" @click="bothResponse()" :disabled="query.length === 0 ">invia</button>
         </div>
        
     </header>
